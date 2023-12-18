@@ -47,7 +47,7 @@ public class QuestionService implements IQuestionService {
     }
 
     @Override
-    public Question updateQuestion(Question question, Long id) throws ChangeSetPersister.NotFoundException {
+    public Question updateQuestion(Long id, Question question) throws ChangeSetPersister.NotFoundException {
         Optional<Question> theQuestion = this.getQuestionById(id);
         if (theQuestion.isPresent()) {
             Question updatedQuestion = theQuestion.get();
@@ -60,7 +60,7 @@ public class QuestionService implements IQuestionService {
         }
     }
 
-    @Override
+     @Override
     public void deleteQuestion(Long id) {
         questionRepository.deleteById(id);
     }
